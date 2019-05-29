@@ -8,6 +8,8 @@ package bootcamp.mii.bootcamp.mii.controllers;
 import bootcamp.mii.bootcamp.mii.entities.Actor;
 import bootcamp.mii.bootcamp.mii.repositories.ActorRepository;
 import bootcamp.mii.bootcamp.mii.services.FilmActorService;
+import bootcamp.mii.bootcamp.mii.testapi.JSONService;
+import com.google.gson.JsonObject;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -96,4 +98,13 @@ public class MainController {
     public String Login() {
         return "/signin/index";
     }
+    
+    @GetMapping("/jsonclient")
+    public String JSONClient(Model model){
+        JSONService jsons = new JSONService();
+        model.addAttribute("dataActor", jsons.getJsonObject("http://localhost:8088/json/actor/all/get"));
+        return "/json/index";
+    }
+    
+    
 }
