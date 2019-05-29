@@ -91,4 +91,9 @@ public class MainController {
         model.addAttribute("actor", actorRepository.findAll());
         return "index";
     }
+    
+    @GetMapping("/signin")
+    public String Login() {
+        return "/signin/index";
+    }
 }

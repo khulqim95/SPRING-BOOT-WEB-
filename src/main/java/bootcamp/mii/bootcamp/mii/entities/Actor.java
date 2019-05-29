@@ -143,7 +143,11 @@ public class Actor implements Serializable {
 
     @Override
     public String toString() {
-        return "bootcamp.mii.bootcamp.mii.entities.Actor[ actorId=" + actorId + " ]";
+        return "{"
+                + "\"actorId\":\""+actorId+"\""
+                + ",\"firstName\":\""+firstName+"\""
+                + ",\"lastName\":\""+lastName+"\""
+                + "}";
     }
     
 }
